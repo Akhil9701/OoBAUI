@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '~igniteui-angular/lib/core/styles/themes/index';
+// @include igx-core();
+// @include igx-theme($default-palette);
+// html, body { height: 100%; }
+
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+//  body { 
+//     margin: 0px;
+//     padding: 0px;
+//     overflow-x: hidden;
+//     min-width: 100%;
+//     max-width: 100%;
+    
+    
+//  }
+
+
+/* open-sans-regular - latin_latin-ext_cyrillic */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'),
+         url('./fonts/open-sans-v17-latin-300.woff') format('woff'), 
+         url('./fonts/open-sans-v17-latin-300.woff2') format('woff2'), 
+        //  url('./fonts/open-sans-v17-latin-600.woff') format('woff'),
+        //  url('./fonts/open-sans-v17-latin-600.woff2') format('woff2'),
+        //  url('./fonts/open-sans-v17-latin-700.woff') format('woff'),
+        //  url('./fonts/open-sans-v17-latin-700.woff2') format('woff2'),
+        //  url('./fonts/open-sans-v17-latin-800.woff') format('woff'),
+        //  url('./fonts/open-sans-v17-latin-800.woff2') format('woff2'),
+        //  url('./fonts/open-sans-v17-latin-regular.woff') format('woff'),
+        //  url('./fonts/open-sans-v17-latin-regular.woff2') format('woff2'),
+         
+  }

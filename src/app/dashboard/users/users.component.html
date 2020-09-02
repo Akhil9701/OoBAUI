@@ -1,0 +1,224 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<div class="bs-example">
+  <nav>
+    <ol class="breadcrumb">
+      <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
+      <h2>Users<p>User management</p>
+      </h2>
+    </ol>
+  </nav>
+</div>
+
+<!-- <div *ngIf="showUserRegErrPop" class="container alert alert-danger alert-dismissible" (click)="showUserRegErrPop=false"
+  style="margin-left: 155px;
+width: 81%;
+height: 47px;">
+  <a href="#" class="close" data-dismiss="alert" style="    position: absolute;
+  top: -10px;
+  right: -10px;" aria-label="close">&times;</a>
+  <strong>{{respMessage}}</strong> <br>
+</div>
+<div *ngIf="showUserRegSucPop" class="container alert alert-success alert-dismissible" (click)="showUserRegSucPop=false"
+  style="margin-left: 155px;
+  width: 81%;
+  height: 47px;">
+  <a href="#" class="close" data-dismiss="alert" style="    position: absolute;
+  top: -10px;
+  right: -10px;" aria-label="close">&times;</a>
+  <strong>{{respMessage}}</strong> <br>
+
+</div> -->
+<div class="container">
+  <!-- <article>
+    <header>
+      <h2>Users<p>User management</p>
+      </h2>
+    </header>
+  </article> -->
+  <div class="row" style="margin-left: 50px;
+  height: 100%;
+  overflow: hidden;
+  margin-top: 30px;">
+  <div *ngIf="showUserRegErrPop" class="container alert alert-danger alert-dismissible" (click)="showUserRegErrPop=false"
+  style="
+width: 97%;height: 48px;">
+  <a href="#" class="close" data-dismiss="alert" style="    position: absolute;
+  top: -10px;
+  right: -10px;" aria-label="close">&times;</a>
+  <strong>{{respMessage}}</strong> <br>
+</div>
+<div *ngIf="showUserRegSucPop" class="container alert alert-success alert-dismissible" (click)="showUserRegSucPop=false"
+  style="
+  width: 97%;height: 48px;">
+  <a href="#" class="close" data-dismiss="alert" style="    position: absolute;
+  top: -10px;
+  right: -10px;" aria-label="close">&times;</a>
+  <strong>{{respMessage}}</strong> <br>
+
+</div>
+    <div class="col-md-12">
+
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col col-xs-6">
+              <h3 class="panel-title"><i class="fa fa-plus" ng-class="icon"></i> Add a new user</h3>
+            </div>
+            <!-- <div class="col col-xs-6 text-right">
+              <button type="button" class="btn btn-sm btn-primary btn-create">Create New</button>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="panel-body">
+
+
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-horizontal">
+
+            <div class="form-group"
+              [ngClass]="{'has-danger': form.controls['username'].hasError('required') && form.controls['username'].touched}">
+              <label for="username" class="col-sm-3 col-lg-2 control-label text-left">
+                Username
+              </label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" placeholder="username"
+                    [formControl]="form.controls['username']"
+                    [ngClass]="{'form-control-danger': form.controls['username'].hasError('required') && form.controls['username'].touched}" />
+                </div>
+                <div class="feedback"
+                  *ngIf="form.controls['username'].hasError('required') && form.controls['username'].touched">
+                  Username
+                  is required.</div>
+              </div>
+            </div>
+
+            <div class="form-group"
+              [ngClass]="{'has-danger': form.controls['email'].hasError('required') && form.controls['email'].touched}">
+              <label for="email" class="col-sm-3 col-lg-2 control-label text-left">
+                Email
+              </label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" placeholder="email" [formControl]="form.controls['email']"
+                    [ngClass]="{'form-control-danger': form.controls['email'].hasError('required') && form.controls['email'].touched}" />
+                </div>
+                <div class="feedback"
+                  *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched">Email is
+                  required.</div>
+                <div class="feedback"
+                  *ngIf="form.controls['email'].hasError('email') && form.controls['email'].touched">Email must be
+                  Valid
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group"
+              [ngClass]="{'has-danger': form.controls['password'].hasError('required') && form.controls['password'].touched}">
+              <label for="password" class="col-sm-3 col-lg-2 control-label text-left">Password</label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                  <input type="password" class="form-control" placeholder="********"
+                    [formControl]="form.controls['password']"
+                    [ngClass]="{'form-control-danger': form.controls['password'].hasError('required') && form.controls['password'].touched}" />
+                </div>
+                <div class="feedback"
+                  *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched">
+                  Password
+                  is required.</div>
+              </div>
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="confirm_password" class="col-sm-3 col-lg-2 control-label text-left">Confirm password</label>
+              <div class="col-sm-8">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                  <input type="password" class="form-control" formControlName="confirmPassword"
+                    [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+
+
+                  <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+
+            <div class="form-group">
+              <div class="col-sm-8" style="display: flex;">
+                <label for="permissions" class="control-label text-left">
+                  Administrator
+                  <!-- <i class="fa fa-question-circle tooltip-icon" aria-hidden="true"
+                    style="margin-left: 4px;"></i> -->
+                </label>
+
+                <div class="switch-toggle switch-3 switch-candy" style="width:80px">
+                  <ng-container *ngFor="let option of options">
+                    <input type="checkbox" name="user_type" [checked]="value === option.value" [value]="option.value" />
+                    <label (click)="onSelectionChange(option.value)" for="option{{option.id}}">
+                      {{option.id}}
+                    </label>
+                  </ng-container> <a></a>
+
+                </div>
+
+                <!-- {{ value }} -->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-primary" style="margin-left: 11px;">Create
+                user</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col col-xs-6">
+              <h3 class="panel-title"><i class="fa fa-user" ng-class="icon"></i> Users</h3>
+            </div>
+            <!-- <div class="col col-xs-6 text-right">
+                  <button type="button" class="btn btn-sm btn-primary btn-create">Create New</button>
+                </div> -->
+          </div>
+        </div>
+        <div class="panel-body">
+          <table class="table table-bordered table-striped mb-0">
+            <thead>
+              <tr>
+                <th *ngFor="let th of tableHeading">{{th}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tb of tableBody |slice:1 | paginate:{itemsPerPage:10,currentPage:p}">
+                <td *ngFor="let td of tb">
+                  {{td}}
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<!-- <div class="container"> -->
+<!-- <div id="logo1">
+  <img src="assets/images/logo.png">
+</div> -->
+<div id="logo1">
+  <img src="../../assets/images/logo_ooba.png">
+</div>
+<!-- </div> -->
+
+
+
+<div class="container-fluid"> 
+  <!-- <div class="row">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <fieldset class="form-group"
+        [ngClass]="{'has-danger': form.controls['uname'].hasError('required') && form.controls['uname'].touched}">
+
+        <input type="text" class="form-control" placeholder="username" [formControl]="form.controls['uname']"
+          [ngClass]="{'form-control-danger': form.controls['uname'].hasError('required') && form.controls['uname'].touched}" />
+        <div class="form-control-feedback alert alert-danger"
+          *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched">Email is required.</div>
+      </fieldset>
+      <fieldset class="form-group"
+        [ngClass]="{'has-danger': form.controls['password'].hasError('required') && form.controls['password'].touched}">
+
+        <input type="password" class="form-control" placeholder="********" [formControl]="form.controls['password']"
+          [ngClass]="{'form-control-danger': form.controls['password'].hasError('required') && form.controls['password'].touched}" />
+        <div class="form-control-feedback alert alert-danger"
+          *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched">Password is
+          required.</div>
+      </fieldset>
+      <div class="block"></div>
+      <div class="alert alert-danger" *ngIf="invalidUser" style="margin-left: 340px;
+        margin-top: 30px;
+        width: 300px;">
+        {{loginFailed}}
+      </div>
+      <button class="btn btn-primary btn-position" type="submit" [disabled]="!form.valid">Login</button>
+    </form>
+  </div> -->
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row m-3">
+        <div class="col-4">
+          
+          <div class="login-card-light p-3 shadow-lg rounded sz">
+              <div *ngIf="invalidUser" class="error">
+                  {{loginFailed}}
+                </div>
+                <div class="header">
+                    <h1 class="primary-title">Welcome back !</h1>
+                  </div>
+
+            <div class="mt-4">
+              
+              <fieldset class="form-group"
+                [ngClass]="{'has-danger': form.controls['uname'].hasError('required') && form.controls['uname'].touched}">
+                <label for="username" class="form-control-label">
+                  Your email
+                </label>
+                <input type="text" class="form-control" placeholder="email" [formControl]="form.controls['uname']"
+                  [ngClass]="{'form-control-danger': form.controls['uname'].hasError('required') && form.controls['uname'].touched}" autofocus/>
+                <!-- <div class="form-control-feedback alert alert-danger"
+                  *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched">Email is
+                  required.</div> -->
+              </fieldset>
+              <fieldset class="form-group"
+                [ngClass]="{'has-danger': form.controls['password'].hasError('required') && form.controls['password'].touched}">
+                <label for="password" class="form-control-label">
+                   Your password
+                </label>
+                <input type="password" class="form-control" placeholder="********"
+                  [formControl]="form.controls['password']"
+                  [ngClass]="{'form-control-danger': form.controls['password'].hasError('required') && form.controls['password'].touched}" />
+                <!-- <div class="form-control-feedback alert alert-danger"
+                  *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched">Password
+                  is
+                  required.</div> -->
+              </fieldset>
+              <div class="block"></div>
+              <div class="mt-5">
+                <!-- <button class="btn btn-sm col">
+                              Login
+                          </button> -->
+                <button class="btn btn-sm col" type="submit" [disabled]="!form.valid">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
